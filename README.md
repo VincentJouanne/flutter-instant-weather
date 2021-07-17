@@ -1,3 +1,3 @@
-## Flutter training
+## Instant Weather
 
-This app is for training purpose.
+![instant weather mockup](./docs/instant_weather_mockup.png)
