@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_list_app/widgets/FavoriteStar.dart';
+import 'package:simple_list_app/widgets/favorite_star.dart';
 
 void main() {
   runApp(MyApp());
