@@ -10,7 +10,11 @@ class _FavoriteStarState extends State<FavoriteStar> {
 
   Widget build(BuildContext context) {
     return IconButton(
-      icon: (_isFavorited ? Icon(Icons.star) : Icon(Icons.star_border)),
+      key: Key('favorite_star_icon_button'),
+      icon: (_isFavorited
+          ? Icon(Icons.star, key: Key('favorite_star_filled_icon_button'))
+          : Icon(Icons.star_border,
+              key: Key('favorite_star_unfilled_icon_button'))),
       color: Colors.black,
       onPressed: _toggleFavorite,
     );
