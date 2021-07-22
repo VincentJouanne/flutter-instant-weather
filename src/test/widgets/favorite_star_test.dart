@@ -1,42 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:simple_list_app/main.dart';
+import 'package:simple_list_app/widgets/favorite_star.dart';
+
+Widget makeTesteableWidget({Widget? child}) {
+  return MaterialApp(
+    home: Scaffold(
+      body: child,
+    ),
+    theme: ThemeData(
+      primaryColor: Colors.white,
+    ),
+  );
+}
 
 void main() {
   testWidgets(
-      'Favorite star widget should have an unfilled default icon button.',
-      (tester) async {
-    // create the widget
-    MyApp myApp = new MyApp();
+      'Favorite star widget should render with an unfilled default icon button.',
+      (WidgetTester tester) async {
+    // Given a favorite star
+    Widget widgetTotest = makeTesteableWidget(child: FavoriteStar());
+    await tester.pumpWidget(widgetTotest);
 
-    // add it to the widget tester
-    await tester.pumpWidget(myApp);
+    // When we do nothing
 
-    // find the unfilled icon
-    Finder iconButton =
-        find.byKey(new Key('favorite_star_unfilled_icon_button'));
-
-    expect(iconButton, findsOneWidget);
+    // The default icon should be an unfilled star
+    await expectLater(find.byType(FavoriteStar), matchesGoldenFile('main.png'));
+    await expectLater(find.byKey(new Key('favorite_star_unfilled_icon_button')),
+        matchesGoldenFile('main.png'));
   });
 
   testWidgets(
       'Favorite star widget should have a filled icon button if favorited.',
-      (tester) async {
-    // create the widget
-    MyApp myApp = new MyApp();
+      (WidgetTester tester) async {
+    // Given a favorite star
+    Widget widgetTotest = makeTesteableWidget(child: FavoriteStar());
+    await tester.pumpWidget(widgetTotest);
 
-    // pump
-    await tester.pumpWidget(myApp);
-
-    // type on the icon button
+    // When we tap on the icon button
     await tester.tap(find.byType(IconButton));
+    await tester.pumpWidget(widgetTotest);
 
-    // pump
-    await tester.pumpWidget(myApp);
-
-    // find the filled icon
-    Finder iconButton = find.byKey(new Key('favorite_star_filled_icon_button'));
-
-    expect(iconButton, findsOneWidget);
+    // The icon should be a filled star
+    await expectLater(find.byType(FavoriteStar), matchesGoldenFile('main.png'));
+    await expectLater(find.byKey(new Key('favorite_star_filled_icon_button')),
+        matchesGoldenFile('main.png'));
   });
 }
