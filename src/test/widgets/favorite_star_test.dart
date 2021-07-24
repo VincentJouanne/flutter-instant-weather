@@ -22,7 +22,7 @@ void main() {
 
     // The default icon should be an unfilled star
     await expectLater(find.byIcon(Icons.star_border),
-        matchesGoldenFile('icon_star_border.png'));
+        matchesGoldenFile('goldens/icon_star_border.png'));
   });
 
   testWidgets(
@@ -46,6 +46,6 @@ void main() {
 
     // The icon should be a filled star
     await expectLater(
-        find.byIcon(Icons.star), matchesGoldenFile('icon_star.png'));
+        find.byIcon(Icons.star), matchesGoldenFile('goldens/icon_star.png'));
   });
 }
