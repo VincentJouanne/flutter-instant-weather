@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_list_app/widgets/favorite_star.dart';
+import 'package:simple_list_app/widgets/weather_card.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FavoriteStar(),
+              WeatherCard(
+                headline: "France",
+                firstData: "32°C",
+                secondData: "1024pa",
+                thirdData: "65%",
+              )
             ],
           ),
         ));
