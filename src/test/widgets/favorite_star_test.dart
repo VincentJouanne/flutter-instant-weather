@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_list_app/widgets/favorite_star.dart';
 
+import '../utils/test_resource_loader.dart';
+
 void main() {
   testWidgets(
       'Favorite star widget should render with an unfilled default icon button.',
       (WidgetTester tester) async {
+    await loadIconFont();
+
     // Given a favorite star
     MaterialApp app = MaterialApp(
       home: Scaffold(
@@ -22,12 +26,14 @@ void main() {
 
     // The default icon should be an unfilled star
     await expectLater(find.byIcon(Icons.star_border),
-        matchesGoldenFile('icon_star_border.png'));
+        matchesGoldenFile('goldens/icon_star_border.png'));
   });
 
   testWidgets(
       'Favorite star widget should have a filled icon button if favorited.',
       (WidgetTester tester) async {
+    await loadIconFont();
+
     // Given a favorite star
     MaterialApp app = MaterialApp(
       home: Scaffold(
@@ -46,6 +52,6 @@ void main() {
 
     // The icon should be a filled star
     await expectLater(
-        find.byIcon(Icons.star), matchesGoldenFile('icon_star.png'));
+        find.byIcon(Icons.star), matchesGoldenFile('goldens/icon_star.png'));
   });
 }
