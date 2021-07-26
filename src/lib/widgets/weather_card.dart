@@ -20,8 +20,8 @@ class WeatherCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(
-        borderRadius: new BorderRadius.all(Radius.circular(20)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
