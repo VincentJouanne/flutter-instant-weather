@@ -19,7 +19,8 @@ class WeatherCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
+        child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),
         color: Colors.white,
@@ -32,7 +33,6 @@ class WeatherCard extends StatelessWidget {
           ),
         ],
       ),
-      width: double.infinity,
       height: 100,
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       padding: EdgeInsets.all(20),
@@ -61,6 +61,6 @@ class WeatherCard extends StatelessWidget {
           FavoriteStar()
         ],
       ),
-    );
+    ));
   }
 }
